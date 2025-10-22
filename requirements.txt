@@ -1,5 +1,4 @@
 time
 socket
 sys
-_thread
 flask
