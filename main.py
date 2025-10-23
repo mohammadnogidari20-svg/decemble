@@ -4,7 +4,7 @@ import sys
 import _thread
 from flask import Flask, render_template_string
 
-site = ("arshia2.ir")
+site = ("studioag.ir")
 thread_count = ("100000000000")
 ip = socket.gethostbyname(site)
 UDP_PORT = 80
