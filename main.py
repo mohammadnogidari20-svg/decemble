@@ -5,7 +5,7 @@ import _thread
 from flask import Flask, render_template_string
 import requests
 
-URL = "studioag.ir"  # فقط localhost یا سرور تست با مجوز
+URL = "https://studioag.ir"  # فقط localhost یا سرور تست با مجوز
 TOTAL = 999999999999
 session = requests.Session()  # نگهداری اتصال (keep-alive)
 for i in range(TOTAL):
